@@ -187,7 +187,7 @@ View.prototype.find = function(ch) {
 var world = new World(plan, { "#": Wall,
                                "o": BouncingCritter});
 
-var counter = 0;
+cycle();
 
 function cycle(){
  if (true){
@@ -195,25 +195,17 @@ function cycle(){
  };
 }
 
-cycle();
-
-// for (var i = 0; i < 5; i++) {
-//   world.turn();
-//   console.log(world.toString());
-// }
-
 function animate(){
   setTimeout(function(){
     world.turn();
     clearScreen();
-    console.log("ELECTRONIC LIFE\n");
     showWorld();
-    counter++;
     cycle();
   }, 50);
 }
 
 function showWorld(){
+  console.log("ELECTRONIC LIFE\n");
   console.log(world.toString());
 }
 
