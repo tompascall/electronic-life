@@ -24,22 +24,6 @@ var directions = {
   "nw": new Vector(-1, -1)
 };
 
-var world = new World(plan, { "#": Wall,
-                               "o": BouncingCritter});
-
-
-  //process.stdout.write('\033c');
-  //console.log(world.toString();
-
-
-
-for (var i = 0; i < 5; i++) {
-  world.turn();
-  console.log(world.toString());
-}
-
-// -------------------------------------------------
-
 function Vector(x, y){
   this.x = x;
   this.y = y;
@@ -199,3 +183,41 @@ View.prototype.find = function(ch) {
   if (found.length == 0) return null;
   return randomElement(found);
 };
+
+var world = new World(plan, { "#": Wall,
+                               "o": BouncingCritter});
+
+var counter = 0;
+
+function cycle(){
+ if (true){
+   animate();
+ };
+}
+
+cycle();
+
+// for (var i = 0; i < 5; i++) {
+//   world.turn();
+//   console.log(world.toString());
+// }
+
+function animate(){
+  setTimeout(function(){
+    world.turn();
+    clearScreen();
+    console.log("ELECTRONIC LIFE\n");
+    showWorld();
+    counter++;
+    cycle();
+  }, 50);
+}
+
+function showWorld(){
+  console.log(world.toString());
+}
+
+function clearScreen(){
+  for (var i = 0; i < 20; i++)
+      console.log("\n");
+}
