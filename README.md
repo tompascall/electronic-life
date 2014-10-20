@@ -1,4 +1,4 @@
-This project is based on one of the project (electronic life) of the book [Marijn Haverbeke: Eloquent Javascript (second edition)](eloquentjavascript.net).
+This project is based on one of the project [http://eloquentjavascript.net/07_elife.html](electronic life) of the book [Marijn Haverbeke: Eloquent Javascript (second edition)](eloquentjavascript.net).
 
 The program runs under node.js.
 

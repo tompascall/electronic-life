@@ -15,27 +15,41 @@ var plan = ["############################",
 
 
 var el = require('./el.js');
-var world = new el.World(plan, { "#": el.Wall,
+
+var solidWorld = new el.World(plan, { "#": el.Wall,
                                "o": el.BouncingCritter});
+
+var animateWorld = new el.World(
+  ["############",
+   "#     #    #",
+   "#   ~    ~ #",
+   "#  ##      #",
+   "#  ##  o####",
+   "#          #",
+   "############"],
+  {"#": el.Wall,
+   "~": el.WallFollower,
+   "o": el.BouncingCritter}
+);
 
 cycle();
 
 function cycle(){
  if (true){
-   animate();
+   animate(animateWorld);
  };
 }
 
-function animate(){
+function animate(world){
   setTimeout(function(){
     world.turn();
     clearScreen();
-    showWorld();
+    showWorld(world);
     cycle();
   }, 50);
 }
 
-function showWorld(){
+function showWorld(world){
   console.log("ELECTRONIC LIFE\n");
   console.log(world.toString());
 }
