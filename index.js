@@ -32,11 +32,30 @@ var animateWorld = new el.World(
    "o": el.BouncingCritter}
 );
 
+var valley = new el.LifelikeWorld(
+  ["############################",
+   "#####       ****      ######",
+   "##   ***     **        ***##",
+   "#   *##**         **  O **##",
+   "#    ***     O   *##**    *#",
+   "#       O        *##***    #",
+   "#                *##**     #",
+   "#   O      *#*             #",
+   "#*        **#**       O   *#",
+   "#***       *##**    O   ***#",
+   "##****     ###***      **###",
+   "############################"],
+  {"#": el.Wall,
+   "O": el.PlantEater,
+   "*": el.Plant}
+);
+
+
 cycle();
 
 function cycle(){
  if (true){
-   animate(animateWorld);
+   animate(valley);
  };
 }
 
@@ -46,7 +65,7 @@ function animate(world){
     clearScreen();
     showWorld(world);
     cycle();
-  }, 50);
+  }, 100);
 }
 
 function showWorld(world){
