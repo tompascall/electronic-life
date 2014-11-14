@@ -15,6 +15,7 @@ var plan = ["############################",
 
 
 var el = require('./el.js');
+var animate = require('./animator.js').animate;
 
 var solidWorld = new el.World(plan, { "#": el.Wall,
                                "o": el.BouncingCritter});
@@ -50,31 +51,5 @@ var valley = new el.LifelikeWorld(
    "*": el.Plant}
 );
 
+animate(valley, valley.turn, valley.toString);
 
-cycle();
-
-function cycle(){
- if (true){
-   animate(valley);
- };
-}
-
-function animate(world){
-  setTimeout(function(){
-    world.turn();
-    clearScreen();
-    showWorld(world);
-    cycle();
-  }, 100);
-}
-
-function showWorld(world){
-  console.log("ELECTRONIC LIFE\n");
-  console.log(world.toString());
-}
-
-function clearScreen(){
-  for (var i = 0; i < 5; i++){
-    console.log("\n\n\n\n\n\n\n\n\n\n");
-  };
-}
